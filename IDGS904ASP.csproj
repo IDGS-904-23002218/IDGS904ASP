@@ -185,9 +185,14 @@
     <Content Include="Views\Pruebas\Contacto.cshtml" />
     <Content Include="Views\Pruebas\Empleado.cshtml" />
     <Content Include="Views\Cinepolis\Cinepolis.cshtml" />
+    <Content Include="Views\Pruebas\DisplayTemplates\Boolean.cshtml" />
+    <Content Include="Views\Pruebas\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Pruebas\DisplayTemplates\Persona.cshtml" />
+    <Content Include="Views\Pruebas\Listas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Pruebas\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

@@ -1,0 +1,250 @@
+﻿@{
+    ViewBag.Title = "Cinepolis";
+}
+
+<style>
+    body {
+        background-color: #0b3d91;
+    }
+
+    .cinepolis-container {
+        background: linear-gradient(to bottom, #1b4fa3, #0a2d73);
+        border: 3px solid #d9d9d9;
+        border-radius: 10px;
+        padding: 25px;
+        margin-top: 20px;
+        color: white;
+        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .titulo-principal {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .titulo-principal span {
+            background: white;
+            color: #1b2f6b;
+            padding: 6px 30px;
+            font-size: 28px;
+            font-family: Georgia;
+            font-style: italic;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+    .panel-box {
+        border: 2px solid rgba(255,255,255,0.5);
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        min-height: 220px;
+    }
+
+    .panel-titulo {
+        color: white;
+        font-size: 30px;
+        font-style: italic;
+        font-family: Georgia;
+        margin-bottom: 20px;
+    }
+
+    .campo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+        .campo label {
+            width: 190px;
+            font-size: 16px;
+        }
+
+        .campo input[type="text"],
+        .campo input[type="number"] {
+            width: 180px;
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+            color: black;
+        }
+
+    .radio-group {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .salida-box {
+        background: white;
+        color: black;
+        width: 180px;
+        padding: 5px;
+        border-radius: 3px;
+        min-height: 32px;
+    }
+
+    .logo-area {
+        text-align: center;
+        margin: 30px 0;
+    }
+
+        .logo-area h1 {
+            font-size: 90px;
+            font-weight: bold;
+            margin: 0;
+            color: white;
+        }
+
+        .logo-area p {
+            font-size: 28px;
+            letter-spacing: 5px;
+            margin-top: -10px;
+            color: white;
+        }
+
+    .acciones-box {
+        width: 320px;
+        margin: auto;
+        border: 2px solid rgba(255,255,255,0.5);
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .acciones-titulo {
+        color: white;
+        font-size: 28px;
+        font-style: italic;
+        font-family: Georgia;
+        margin-bottom: 15px;
+    }
+
+    .btn-custom {
+        background: #f2f2f2;
+        border: 1px solid #999;
+        padding: 8px 25px;
+        margin: 0 10px;
+        border-radius: 4px;
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .btn-custom:hover {
+            background: #ddd;
+            text-decoration: none;
+            color: black;
+        }
+
+    .error-msg {
+        color: yellow;
+        text-align: center;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="container">
+    <div class="cinepolis-container">
+
+        <!-- Título -->
+        <div class="titulo-principal">
+            <span>Cinepolis</span>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+
+                <!-- Entradas -->
+                <div class="col-md-6">
+                    <div class="panel-box">
+                        <div class="panel-titulo">Entradas</div>
+
+                        <div class="campo">
+                            <label>Nombre</label>
+                            <input type="text" name="Nombre" />
+                        </div>
+
+                        <div class="campo">
+                            <label>Cantidad Compradores</label>
+                            <input type="number" name="CantidadCompradores" min="1" />
+                        </div>
+
+                        <div class="campo">
+                            <label>Tarjeta Cineco</label>
+
+                            <div class="radio-group">
+                                <label>
+                                    <input type="radio" name="Tarjeta" value="true" />
+                                    Sí
+                                </label>
+
+                                <label>
+                                    <input type="radio" name="Tarjeta" value="false" checked />
+                                    No
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="campo">
+                            <label>Cantidad De Boletas</label>
+                            <input type="number" name="CantidadBoletos" min="1" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Salidas -->
+                <div class="col-md-6">
+                    <div class="panel-box">
+                        <div class="panel-titulo">Salidas</div>
+
+                        <div class="campo">
+                            <label>Valor a Pagar</label>
+
+                            <div class="salida-box">
+                                @if (ViewBag.Total != null)
+                                {
+                                    @String.Format("{0:N2}", ViewBag.Total)
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Logo -->
+            <div class="logo-area">
+                <h1>Cinépolis</h1>
+                <p>LA CAPITAL DEL CINE</p>
+            </div>
+
+            <!-- Acciones -->
+            <div class="acciones-box">
+                <div class="acciones-titulo">Acciones</div>
+
+                <button type="submit" class="btn-custom">
+                    Procesar
+                </button>
+
+                @Html.ActionLink(
+                    "Salir",
+                    "Index",
+                    "Home",
+                    null,
+                    new { @class = "btn-custom" }
+                )
+            </div>
+        }
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="error-msg">
+                @ViewBag.Error
+            </div>
+        }
+
+    </div>
+</div>

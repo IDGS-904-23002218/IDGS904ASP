@@ -29,10 +29,15 @@ namespace IDGS904ASP.Controllers
             {
                 Nombre = "Carlos",
                 Edad = 21,
-                Empleado = false,
+                Empleado = true,
                 Nacimiento = new DateTime(2005, 1, 1)
             };
             ViewBag.Propiedades = persona;
+            return View();
+        }
+
+        public ActionResult Listas()
+        {
             return View();
         }
     }
