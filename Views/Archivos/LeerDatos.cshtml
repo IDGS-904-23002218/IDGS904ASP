@@ -1,0 +1,21 @@
+﻿@model IDGS904ASP.Models.Alumno
+
+@{
+    ViewBag.Title = "LeerDatos";
+}
+
+<h2>LeerDatos</h2>
+
+<h2>LeerDatos</h2>
+@foreach (string dataLine in ViewBag.tem) 
+{ 
+    <li>
+        user
+        <ul>
+            @foreach (string dataItem in dataLine.Split(','))
+            { 
+                <li>@dataItem</li>
+            }
+        </ul>
+    </li>
+}

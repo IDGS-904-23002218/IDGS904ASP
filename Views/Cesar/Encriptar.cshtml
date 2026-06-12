@@ -1,0 +1,116 @@
+﻿@model IDGS904ASP.Models.Encriptar
+
+@{
+    ViewBag.Title = "Encriptar";
+}
+
+<style>
+    body {
+        background-color: #1a1a2e;
+    }
+
+    .enc-container {
+        background: white;
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 30px;
+        margin-top: 20px;
+        width: 400px;
+    }
+
+    .panel-titulo {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: black;
+    }
+
+    .campo {
+        margin-bottom: 15px;
+    }
+
+        .campo label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: black;
+        }
+
+        .campo input[type="text"],
+        .campo input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 3px;
+            color: black;
+        }
+
+    .btn-custom {
+        background: #f2f2f2;
+        border: 2px solid black;
+        padding: 8px 25px;
+        border-radius: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+        .btn-custom:hover {
+            background: #ddd;
+        }
+
+    .resultado {
+        margin-top: 15px;
+        color: black;
+    }
+
+    .mensaje {
+        color: green;
+        font-weight: bold;
+    }
+
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+<div class="container">
+    <div class="enc-container">
+        <div class="panel-titulo">Frase a encriptar</div>
+
+        @using (Html.BeginForm("Encriptar", "Cesar", FormMethod.Post))
+        {
+            <div class="campo">
+                @Html.LabelFor(m => m.Frase)
+                @Html.TextBoxFor(m => m.Frase)
+            </div>
+
+            <div class="campo">
+                @Html.LabelFor(m => m.Desplazamiento)
+                @Html.TextBoxFor(m => m.Desplazamiento, new { type = "number" })
+            </div>
+
+            <button type="submit" class="btn-custom">Guardar</button>
+            @Html.ActionLink("Menú", "Menu", "Cesar", null, new { @class = "btn-custom" })
+        }
+
+        @if (ViewBag.FraseEncriptada != null)
+        {
+            <div class="resultado">
+                <p><strong>Frase original:</strong> @ViewBag.FraseOriginal</p>
+                <p><strong>Frase encriptada:</strong> @ViewBag.FraseEncriptada</p>
+            </div>
+        }
+
+        @if (ViewBag.Mensaje != null)
+        {
+            <div class="mensaje">@ViewBag.Mensaje</div>
+        }
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="error">@ViewBag.Error</div>
+        }
+    </div>
+</div>

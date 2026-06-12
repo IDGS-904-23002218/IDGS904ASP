@@ -120,15 +120,26 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArchivosController.cs" />
+    <Compile Include="Controllers\CesarController.cs" />
     <Compile Include="Controllers\CinepolisController.cs" />
+    <Compile Include="Controllers\DiccionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PruebasController.cs" />
+    <Compile Include="Controllers\ResistenciaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Alumno.cs" />
+    <Compile Include="Models\Cesar.cs" />
     <Compile Include="Models\Cinepolis.cs" />
+    <Compile Include="Models\Palabra.cs" />
     <Compile Include="Models\Persona.cs" />
+    <Compile Include="Models\Resistencia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\CesarService.cs" />
+    <Compile Include="Servicios\GuardaService.cs" />
+    <Compile Include="Servicios\LeerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -189,6 +200,14 @@
     <Content Include="Views\Pruebas\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Pruebas\DisplayTemplates\Persona.cshtml" />
     <Content Include="Views\Pruebas\Listas.cshtml" />
+    <Content Include="Views\Resistencia\Resistencia.cshtml" />
+    <Content Include="Views\Archivos\Registra.cshtml" />
+    <Content Include="Views\Archivos\LeerDatos.cshtml" />
+    <Content Include="Views\Diccionario\Capturar.cshtml" />
+    <Content Include="Views\Diccionario\Buscar.cshtml" />
+    <Content Include="Views\Cesar\Menu.cshtml" />
+    <Content Include="Views\Cesar\Encriptar.cshtml" />
+    <Content Include="Views\Cesar\Desencriptar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

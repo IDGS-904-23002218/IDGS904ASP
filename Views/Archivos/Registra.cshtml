@@ -1,0 +1,47 @@
+﻿@model IDGS904ASP.Models.Alumno
+
+@{
+    ViewBag.Title = "Registra";
+}
+
+<h2>Registra</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            @using (Html.BeginForm("Registra", "Archivos", FormMethod.Post))
+            {
+                @Html.LabelFor(Model => Model.Nombre)
+                @Html.TextBoxFor(Model => Model.Nombre)
+                <br />
+
+
+                @Html.LabelFor(Model => Model.Apaterno)
+                @Html.TextBoxFor(Model => Model.Apaterno)
+                <br />
+                <br />
+
+
+
+                @Html.LabelFor(Model => Model.Amaterno)
+                @Html.TextBoxFor(Model => Model.Amaterno)
+                <br />
+
+
+                @Html.LabelFor(Model => Model.Email)
+                @Html.TextBoxFor(Model => Model.Email)
+                <br />
+                <br />
+
+
+                <input type="submit" name="name" value="Registrar" />
+            }
+
+        </div>
+    </div>
+    <br />
+
+</div>
+
+
+

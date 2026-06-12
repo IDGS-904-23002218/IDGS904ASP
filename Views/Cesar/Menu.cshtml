@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Encriptador César";
+}
+
+<style>
+    body {
+        background-color: #1a1a2e;
+    }
+
+    .menu-container {
+        background: #00aaff;
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 30px;
+        margin-top: 20px;
+        width: 250px;
+        text-align: center;
+    }
+
+    .menu-titulo {
+        font-size: 26px;
+        font-weight: bold;
+        color: black;
+        margin-bottom: 30px;
+        font-family: Georgia;
+    }
+
+    .btn-encriptar {
+        background: yellow;
+        border: 2px solid black;
+        padding: 10px 30px;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 4px;
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        text-decoration: none;
+        color: black;
+    }
+
+        .btn-encriptar:hover {
+            background: #e6e600;
+            color: black;
+            text-decoration: none;
+        }
+
+    .btn-desencriptar {
+        background: #00cc00;
+        border: 2px solid black;
+        padding: 10px 30px;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 4px;
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        color: black;
+    }
+
+        .btn-desencriptar:hover {
+            background: #00aa00;
+            color: black;
+            text-decoration: none;
+        }
+</style>
+
+<div class="container">
+    <div class="menu-container">
+        <div class="menu-titulo">Encriptador</div>
+        @Html.ActionLink("Encriptar", "Encriptar", "Cesar", null, new { @class = "btn-encriptar" })
+        @Html.ActionLink("Desencriptar", "Desencriptar", "Cesar", null, new { @class = "btn-desencriptar" })
+    </div>
+</div>

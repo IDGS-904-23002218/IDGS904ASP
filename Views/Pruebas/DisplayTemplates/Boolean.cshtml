@@ -1,10 +1,10 @@
-﻿@model Boolean
+﻿@model bool?
 
-@if (Model)
-{ 
+@if (Model == true)
+{
     <span>Si</span>
 }
 else
-{ 
+{
     <span>No</span>
 }
